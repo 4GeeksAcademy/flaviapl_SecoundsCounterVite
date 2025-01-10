@@ -10,9 +10,19 @@ import '../styles/index.css'
 
 // components
 import Home from './components/Home';
+import SecondsCounter from './components/secondsCounter';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <Home/>
-  </React.StrictMode>,
-)
+
+setInterval(timeStartCounter, 1000);
+let count = 0
+
+function timeStartCounter() {
+  console.log("pasa 1 segundo");
+
+  ReactDOM.createRoot(document.getElementById('root')).render(
+    <React.StrictMode>
+      <SecondsCounter seconds={count} />
+    </React.StrictMode>,
+  )
+  count++;
+}
