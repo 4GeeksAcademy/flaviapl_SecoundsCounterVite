@@ -1,5 +1,7 @@
 import React from "react";
 import Digit from "./digit";
+import Button from "./button";
+
 
 const SecondsCounter = (props) => {
     const one= Math.floor(props.seconds/100000 % 10)
@@ -9,6 +11,7 @@ const SecondsCounter = (props) => {
     const five=Math.floor(props.seconds/10 % 10)
     const six=Math.floor(props.seconds/1 % 10)
 
+   
 
     return (
         <>
@@ -21,11 +24,12 @@ const SecondsCounter = (props) => {
                 <Digit number= {five}/>
                 <Digit number= {six}/>
             </div>
-            <div>
-                <button >STOP</button>
-                <button >RESTART</button>
-                <button >RESUME</button>
+            <div className="d-flex justify-content-center">
+                <Button backgroundCol= {"red"} label={"STOP"} onClick={props.stop}/>
+                <Button backgroundCol= {"green"} label={"RESUME"} onClick={props.resume}/>
+                <Button backgroundCol= {"grey"} label={"RESTART"} onClick={props.restart} />
             </div>
+            
 
         </>
 
